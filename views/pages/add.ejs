@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('../partials/head.ejs') %>
+</head>
+<body>
+    <%- include ('../partials/header.ejs') %>
+    <h1>je keuzes</h1>
+    <form action=/ method=post enctype=multipart/form-data>
+    <label for="who">Wie contact dan?</label>
+    <input type="text" name="who">
+    <label for="department">Welk stukje dan?</label>
+    <input type="text" name="department">
+    <label for="email">je mail?</label>
+    <input type="email" name="email"/>
+    
+    <label for="drone">Favo rapper</label>
+    <input type="radio" id="x" name="drone" value="x"
+    checked>
+    <label for="huey">XXXTentacion</label>
+
+    <input type="radio" id="Trippie" name="drone" value="Trippie">
+    <label for="louie">Trippie</label>
+
+    <input type="radio" id="Travis" name="drone" value="Travis">
+    <label for="dewey">Travis</label>
+
+    <input type="submit" value="submit"/>
+</form>
+</body>
+</html>
