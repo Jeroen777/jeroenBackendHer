@@ -13,7 +13,6 @@ const urlencodedParser = bodyParser.urlencoded({
 });
 const port = 8000;
 
-//connecten met mongodb + testen of de connectie lukt
 
 
 // require('dotenv').config()
@@ -32,66 +31,31 @@ const port = 8000;
 // });
 
 app.use(express.static(__dirname + '/public'));
-app.set("view engine", "ejs")
-app.set('views/pages', 'view')
-app.get('/interest', interestShow)
-app.get('/informatie', informatieShow)
-
-//zoeken naar Interest collection en opslaan in interest collection
-app.get('/toevoegen', (req, res) => {
-  const inter = new Inter({
-    title: 'nieuwe informatie',
-    snippet: 'meer info ding',
-    body: 'body van dit ding'
-  });
-
-  inter.save()
-  .then((result)=> {
-    res.send(result)
-  })
-});
-
-//Vind alle ingevulgde interests uit de collection (direct op Inter)
-app.get('/alle-toevoegingen', (req, res) => {
-  Inter.find()
-  .then((result) => {
-    res.send(result);
-  })
-});
-
-//vind een enkele toegevoegde interesse met ID
-app.get('/een-toevoeging', (req, res) => {
-  Inter.findById('60452848fb5358b3591c6a09')
-  .then((result) => {
-    res.send(result)
-  });
-});
+app.set("view engine", "ejs");
+app.set('views/pages', 'view');
+app.get('/', informatieShow);
+app.get('/interest', interestShow);
+app.get('/interest/nieuw', nieuwInterest);
 
 
 function interestShow(req, res) {
-  res.render('pages/interest', {
-    title: 'ja'
-  });
+  res.render('pages/interest', { title: 'jaaaa' });
 };
 
 function informatieShow(req, res) {
-  const interestView = [{
-      leuk: 'Ik weet niet',
-      omschrijving: 'het zal wel'
-    },
-    {
-      leuk: 'tweeee',
-      omschrijving: 'het zal weltweeeee'
-    },
-    {
-      leuk: 'dreieeee',
-      omschrijving: 'het drieeee wel'
-    }
-  ];
-  res.render('pages/informatie', {
-    interestView
-  });
+  Inter.find()
+  .then((result) => {
+    res.render('pages/informatie',{ title: 'alle informatie', interestView: result})
+  })
 };
+
+function nieuwInterest (req, res){
+  res.render('create', {title: 'Nieuwe interesse toevoegen'});
+};
+
+
+
+
 
 app.use(function (req, res) {
   res.status(404).render('pages/not-found.ejs')
