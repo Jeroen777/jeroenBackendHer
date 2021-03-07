@@ -8,26 +8,22 @@ const multer = require('multer');
 const mongoose = require('mongoose');
 const Inter = require('./models/informatieInterests');
 
-
 const port = 8000;
 
-//connecten met mongodb + testen of de connectie lukt
+require('dotenv').config()
 
+const db = mongoose.connection;
+//mongoose connecten met mijn database
+//https://scotch.io/courses/create-a-crud-app-with-node-and-mongodb/environment-variables
+mongoose.connect(process.env.DB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
-// require('dotenv').config()
-
-// const db = mongoose.connection;
-// //mongoose connecten met mijn database
-// //https://scotch.io/courses/create-a-crud-app-with-node-and-mongodb/environment-variables
-// mongoose.connect(process.env.DB_URI, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true
-// });
-
-// //testen of mongoos connected is
-// mongoose.connection.on('connected', () => {
-//   console.log("mongoose is connected");
-// });
+//testen of mongoos connected is
+mongoose.connection.on('connected', () => {
+  console.log("mongoose is connected");
+});
 
 app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: true }));
