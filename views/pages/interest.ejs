@@ -2,7 +2,7 @@
 
 <body>
     <%- include ('../partials/header.ejs') %>
-    <h1>Interest</h1>
+    <h1>Interest <% title %> </h1>
 
     <form id="keuzes-form" method="POST" action="/keuzes">
         <label for="interesse">Interesse</label>
@@ -13,17 +13,6 @@
 
         <label for="email">beschrijving</label>
         <input type="email" id="email" required;
-        
-        <!-- <label for="drone">Favo rapper</label> -->
-        <!-- <input type="radio" id="x" name="drone" value="x"
-        checked>
-        <label for="huey">XXXTentacion</label>
-    
-        <input type="radio" id="Trippie" name="drone" value="Trippie">
-        <label for="louie">Trippie</label>
-    
-        <input type="radio" id="Travis" name="drone" value="Travis">
-        <label for="dewey">Travis</label> -->
     
         <input type="submit" value="submit"/>
     </form>

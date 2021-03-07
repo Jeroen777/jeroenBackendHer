@@ -13,26 +13,30 @@ app.set("view engine", "ejs")
 app.set('views/pages', 'view')
 app.get('/interest', interestShow)
 app.get('/informatie', informatieShow)
-app.get('/', keuzesMaken);
-app.get('pages/', keuzesMaken);
+
+// app.get('/informatie', (req, res) => {
+//   const blogs = [
+//     {title: 'Ik weet niet', snippet: 'het zal wel'},
+//     {title: 'tweeee', snippet: 'het zal weltweeeee'},
+//     {title: 'dreieeee', snippet: 'het drieeee wel'}
+//   ]; 
+//   res.render('pages/informatie', { title: 'ja', blogs });
+// });
+
 app.use(function(req, res) { res.status(404).render('pages/not-found.ejs')});
 
-//formulier keuzes maken
-function keuzesMaken(req, res){ 
-    res.render('pages/keuzes');
+function interestShow(req, res){  
+    res.render('pages/interest', {title: 'ja' });
   };
 
-function interestShow(req, res){ 
-    res.render('pages/interest');
-  };
-
-  function informatieShow(req, res){ 
-    res.render('pages/informatie');
+  function informatieShow(req, res){
+    const interestView = [
+      {leuk: 'Ik weet niet', omschrijving: 'het zal wel'},
+      {leuk: 'tweeee', omschrijving: 'het zal weltweeeee'},
+      {leuk: 'dreieeee', omschrijving: 'het drieeee wel'}
+    ]; 
+    res.render('pages/informatie', {leuk: 'ja', interestView });
   };
   
-  app.post('/keuzes', urlencodedParser, function(req, res){ 
-    console.log(req.body);
-    res.render('pages/keuzes-gelukt', {data: req.body});
-  });
 
 app.listen(port, () => console.log(`app running on port: ${port}`));

@@ -2,5 +2,18 @@
 
 <body>
     <%- include ('../partials/header.ejs') %>
-    <h1>informatie</h1>
+    <h1>informatie <%= leuk %></h1>
+
+<div class="interestsPerson">
+    <div>
+        <% if (interestView.length > 0) { %>
+            <% interestView.forEach(view => { %>
+            
+                <h3 class='bueno'> <%= view.leuk%></h3>
+                <p class='snippet'> <%= view.omschrijving %></p>
+
+            <% }) %>
+       <% } %>
+            </div>
+        </div>
 </body>
