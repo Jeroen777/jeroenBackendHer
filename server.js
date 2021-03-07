@@ -35,7 +35,7 @@ function interestShow(req, res){
       {leuk: 'tweeee', omschrijving: 'het zal weltweeeee'},
       {leuk: 'dreieeee', omschrijving: 'het drieeee wel'}
     ]; 
-    res.render('pages/informatie', {leuk: 'ja', interestView });
+    res.render('pages/informatie', {interestView });
   };
   
 
