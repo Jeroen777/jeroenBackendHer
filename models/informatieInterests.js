@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
-// voor de structuur in de collection
+//Structure in the collection 
 const Schema = mongoose.Schema;
 
-//Schema structuur opbouwen uit informatie
+//Schema structure how to save in the collection
 const infoSchema = new Schema({
     title: {
         type: String,

@@ -4,9 +4,8 @@ const ejs = require("ejs");
 const slug = require("slug");
 const bodyParser = require('body-parser');
 const multer = require('multer');
-// const mongo = require('mongodb');
 const mongoose = require('mongoose');
-const Inter = require('./models/informatieInterests');
+const Inter = require('./models/informatieInterests'); //import schema
 
 const port = 8000;
 
@@ -20,13 +19,14 @@ mongoose.connect(process.env.DB_URI, {
   useUnifiedTopology: true
 });
 
-//testen of mongoos connected is
+//testing if mongoos is connected
 mongoose.connection.on('connected', () => {
   console.log("mongoose is connected");
 });
 
+//routes
 app.use(express.static(__dirname + '/public'));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true })); //To link with new ID url's
 
 app.set("view engine", "ejs");
 app.set('views/pages', 'view');
@@ -38,6 +38,10 @@ app.get('/:id', linkPagina);
 
 app.post('/', formPost);
 
+
+//functions
+
+//function to post new interest and save in DB
 function formPost(req, res){
   const inter = new Inter(req.body);
 
@@ -47,6 +51,7 @@ function formPost(req, res){
   })
 };
 
+//function detail page of an interest with a unique ID
 function linkPagina (req, res) {
   const id = req.params.id;
   Inter.findById(id)
@@ -55,10 +60,12 @@ function linkPagina (req, res) {
   })
 };
 
+//function render interest page
 function interestShow(req, res) {
-  res.render('pages/interest', { title: 'jaaaa' });
+  res.render('pages/interest');
 };
 
+//function find data render on the informatie page
 function informatieShow(req, res) {
   Inter.find()
   .then((result) => {
@@ -66,15 +73,16 @@ function informatieShow(req, res) {
   })
 };
 
+//function add new data to informatie page
 function nieuwInterest (req, res){
-  res.render('create', {title: 'Nieuwe interesse toevoegen'});
+  res.render('maakNieuwe');
 };
 
 
-
-
-
+//404 pagina
 app.use(function (req, res) {
   res.status(404).render('pages/not-found.ejs')
 });
+
+//loggen welke port er gebruikt woord
 app.listen(port, () => console.log(`app running on port: ${port}`));
