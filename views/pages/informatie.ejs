@@ -1,6 +1,7 @@
 <%- include ('../partials/head.ejs') %>
 
 <body>
+    <h1>Al jouw interesses</h1>
     <%- include ('../partials/header.ejs') %>
 
     <div class="interestsPerson">
@@ -10,8 +11,8 @@
             <% interestView.forEach(view => { %>
              
         <a class='eenInterest' href="<%= view.id%>">
-            <h3 class='bueno'> <%= view.title%></h3>
-            <p class='snippet'> <%= view.snippet %></p>
+            <h3 class='bueno'> <%= view.vraagEen%></h3>
+            <p class='snippet'> <%= view.vraagTwee %></p>
         </a>
 
             <% }) %>

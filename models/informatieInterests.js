@@ -4,21 +4,23 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 //Schema structure how to save in the collection
+//Objects with a string and all are required
 const infoSchema = new Schema({
-    title: {
+    vraagEen: {
         type: String,
         required: true
     },
-    snippet: {
+    vraagTwee: {
         type: String,
         required: true
     },
-    body: {
+    vraagDrie: {
         type: String,
         required: true
     }
 });
 
 //mongoose model, Info terugvinden, model gebaseerd op de Schema
+//export to use in server.js
 const Inter = mongoose.model('Inter', infoSchema);
 module.exports = Inter;

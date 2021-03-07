@@ -4,15 +4,16 @@
     <%- include ('../partials/header.ejs') %>
     <h1>Interest </h1>
 
+    <!-- Form with post method including 3 questions -->
     <form id="keuzes-form" method="POST" action="/">
         <label for="interesse">Interesse</label>
-        <input type="text" id="title" name="title" required>
+        <input type="text" id="vraagEen" name="vraagEen" required>
 
         <label for="waarom">Waarom leuk?</label>
-        <input type="text" id="snippet" name="snippet" required>
+        <input type="text" id="vraagTwee" name="vraagTwee" required>
 
         <label for="vermaken">beschrijving</label>
-        <input type="text" id="body" name="body" required>
+        <input type="text" id="vraagDrie" name="vraagDrie" required>
 
     
         <input type="submit" value="submit"/>
