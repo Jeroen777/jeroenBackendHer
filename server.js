@@ -11,12 +11,23 @@ const port = 8000;
 app.use(express.static(__dirname + '/public'));
 app.set("view engine", "ejs")
 app.set('views/pages', 'view')
+app.get('/interest', interestShow)
+app.get('/informatie', informatieShow)
 app.get('/', keuzesMaken);
 app.get('pages/', keuzesMaken);
+app.use(function(req, res) { res.status(404).render('pages/not-found.ejs')});
 
 //formulier keuzes maken
 function keuzesMaken(req, res){ 
     res.render('pages/keuzes');
+  };
+
+function interestShow(req, res){ 
+    res.render('pages/interest');
+  };
+
+  function informatieShow(req, res){ 
+    res.render('pages/informatie');
   };
   
   app.post('/keuzes', urlencodedParser, function(req, res){ 
