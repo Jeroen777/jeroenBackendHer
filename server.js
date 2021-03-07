@@ -4,31 +4,38 @@ const ejs = require("ejs");
 const slug = require("slug");
 const bodyParser = require('body-parser');
 const multer = require('multer');
-const mongo = require('mongodb');
+// const mongo = require('mongodb');
 const mongoose = require('mongoose');
-const Info = require('./models/informatieInterests');
+const Inter = require('./models/informatieInterests');
 
 const urlencodedParser = bodyParser.urlencoded({
   extended: false
 });
 const port = 8000;
 
+//connecten met mongodb + testen of de connectie lukt
+const dbURI = 'mongodb+srv://jeroen:Stabij123@cluster0.8prdp.mongodb.net/dateAppJeroen?retryWrites=true&w=majority';
+mongoose.connect(dbURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then((result) => console.log('connected to db'))
+  .catch((err) => console.log(err));
 
-require('dotenv').config()
+// require('dotenv').config()
 
-const db = mongoose.connection;
-//mongoose connecten met mijn database
-//https://scotch.io/courses/create-a-crud-app-with-node-and-mongodb/environment-variables
-mongoose.connect(process.env.DB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+// const db = mongoose.connection;
+// //mongoose connecten met mijn database
+// //https://scotch.io/courses/create-a-crud-app-with-node-and-mongodb/environment-variables
+// mongoose.connect(process.env.DB_URI, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// });
 
-//testen of mongoos connected is
-mongoose.connection.on('connected', () => {
-  console.log("mongoose is connected");
-});
-
+// //testen of mongoos connected is
+// mongoose.connection.on('connected', () => {
+//   console.log("mongoose is connected");
+// });
 
 
 app.use(express.static(__dirname + '/public'));
@@ -38,9 +45,24 @@ app.get('/interest', interestShow)
 app.get('/informatie', informatieShow)
 
 
-app.use(function (req, res) {
-  res.status(404).render('pages/not-found.ejs')
+
+//zoeken naar Info collection en opslaan in interest collection
+app.get('/toevoegen', (req, res) => {
+  const inter = new Inter({
+    title: 'nieuwe informatie',
+    snippet: 'meer info ding',
+    body: 'body van dit ding'
+  });
+
+  inter.save()
+  .then((result)=> {
+    res.send(result)
+  })
+  .catch((err) => {
+    console.log(err);
+  })
 });
+
 
 function interestShow(req, res) {
   res.render('pages/interest', {
@@ -67,5 +89,7 @@ function informatieShow(req, res) {
   });
 };
 
-
+app.use(function (req, res) {
+  res.status(404).render('pages/not-found.ejs')
+});
 app.listen(port, () => console.log(`app running on port: ${port}`));
