@@ -38,23 +38,26 @@ app.set('views/pages', 'view');
 app.get('/', informatieShow);
 app.get('/interest', interestShow);
 app.get('/interest/nieuw', nieuwInterest);
+app.get('/:id', linkPagina);
 
-app.post('/', (req, res) =>{
+app.post('/', formPost);
+
+function formPost(req, res){
   const inter = new Inter(req.body);
 
   inter.save()
   .then((result) => {
  res.redirect('/');
   })
-});
+};
 
-app.get('/:id', (req, res)=> {
+function linkPagina (req, res) {
   const id = req.params.id;
   Inter.findById(id)
   .then(result => {
     res.render('pages/extraInformatie',{Xinfo: result, title: "Extra informatie"})
   })
-})
+};
 
 function interestShow(req, res) {
   res.render('pages/interest', { title: 'jaaaa' });
