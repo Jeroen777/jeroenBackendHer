@@ -14,13 +14,7 @@ const urlencodedParser = bodyParser.urlencoded({
 const port = 8000;
 
 //connecten met mongodb + testen of de connectie lukt
-const dbURI = 'mongodb+srv://jeroen:Stabij123@cluster0.8prdp.mongodb.net/dateAppJeroen?retryWrites=true&w=majority';
-mongoose.connect(dbURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
-  .then((result) => console.log('connected to db'))
-  .catch((err) => console.log(err));
+
 
 // require('dotenv').config()
 
@@ -37,16 +31,13 @@ mongoose.connect(dbURI, {
 //   console.log("mongoose is connected");
 // });
 
-
 app.use(express.static(__dirname + '/public'));
 app.set("view engine", "ejs")
 app.set('views/pages', 'view')
 app.get('/interest', interestShow)
 app.get('/informatie', informatieShow)
 
-
-
-//zoeken naar Info collection en opslaan in interest collection
+//zoeken naar Interest collection en opslaan in interest collection
 app.get('/toevoegen', (req, res) => {
   const inter = new Inter({
     title: 'nieuwe informatie',
@@ -58,9 +49,22 @@ app.get('/toevoegen', (req, res) => {
   .then((result)=> {
     res.send(result)
   })
-  .catch((err) => {
-    console.log(err);
+});
+
+//Vind alle ingevulgde interests uit de collection (direct op Inter)
+app.get('/alle-toevoegingen', (req, res) => {
+  Inter.find()
+  .then((result) => {
+    res.send(result);
   })
+});
+
+//vind een enkele toegevoegde interesse met ID
+app.get('/een-toevoeging', (req, res) => {
+  Inter.findById('60452848fb5358b3591c6a09')
+  .then((result) => {
+    res.send(result)
+  });
 });
 
 
