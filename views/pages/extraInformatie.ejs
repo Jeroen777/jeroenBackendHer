@@ -1,0 +1,18 @@
+<%- include ('../partials/head.ejs') %>
+
+<body>
+    <%- include ('../partials/header.ejs') %>
+    <div class="extraInformatieTitel">
+        <h3><%= Xinfo.title %></h3>
+    </div>
+
+    <div class="extraInformatie">
+        <p><%= Xinfo.body %></p>
+
+        <div class="extraInformatie">
+            <h3><%= Xinfo.title %></h3>
+        </div>
+
+        <a class="verwijderen" data-doc=" <%= Xinfo._id %>">verwijder interesse</a>
+    </div>
+</body>

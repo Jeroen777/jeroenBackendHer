@@ -11,6 +11,7 @@ const Inter = require('./models/informatieInterests');
 
 const port = 8000;
 
+//connecten met mongodb + testen of de connectie lukt
 
 
 // require('dotenv').config()
@@ -46,6 +47,14 @@ app.post('/', (req, res) =>{
  res.redirect('/');
   })
 });
+
+app.get('/:id', (req, res)=> {
+  const id = req.params.id;
+  Inter.findById(id)
+  .then(result => {
+    res.render('pages/extraInformatie',{Xinfo: result, title: "Extra informatie"})
+  })
+})
 
 function interestShow(req, res) {
   res.render('pages/interest', { title: 'jaaaa' });

@@ -7,9 +7,11 @@
         <div>
             <% if (interestView.length > 0) { %>
             <% interestView.forEach(view => { %>
-
+             
+        <a class='eenInterest' href="<%= view.id%>">
             <h3 class='bueno'> <%= view.title%></h3>
             <p class='snippet'> <%= view.snippet %></p>
+        </a>
 
             <% }) %>
             <% } else {%>
