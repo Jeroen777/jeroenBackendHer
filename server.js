@@ -8,9 +8,7 @@ const multer = require('multer');
 const mongoose = require('mongoose');
 const Inter = require('./models/informatieInterests');
 
-const urlencodedParser = bodyParser.urlencoded({
-  extended: false
-});
+
 const port = 8000;
 
 
@@ -31,12 +29,23 @@ const port = 8000;
 // });
 
 app.use(express.static(__dirname + '/public'));
+app.use(express.urlencoded({ extended: true }));
+
 app.set("view engine", "ejs");
 app.set('views/pages', 'view');
+
 app.get('/', informatieShow);
 app.get('/interest', interestShow);
 app.get('/interest/nieuw', nieuwInterest);
 
+app.post('/', (req, res) =>{
+  const inter = new Inter(req.body);
+
+  inter.save()
+  .then((result) => {
+ res.redirect('/');
+  })
+});
 
 function interestShow(req, res) {
   res.render('pages/interest', { title: 'jaaaa' });
