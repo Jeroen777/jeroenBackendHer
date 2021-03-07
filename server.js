@@ -24,7 +24,7 @@ mongoose.connection.on('connected', () => {
   console.log("mongoose is connected");
 });
 
-//routes
+
 app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: true })); //To link with new ID url's
 

@@ -5,6 +5,12 @@ body {
     color: green;
 }
 
+a {
+    list-style-type: none;
+    text-decoration: none;
+
+}
+
 header nav {
     background-color: black;
 }
@@ -94,6 +100,15 @@ h3 {
     font-size: 1em;
 }
 
-.interestsPerson {
+.eenInterest{
     color: pink;
+    font-size: 1.5em;
+    padding-top: 2em;
+    text-align: center;
+
+    background-color: green;
+}
+
+.bueno {
+    padding-top: 2em;
 }
