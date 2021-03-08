@@ -32,3 +32,6 @@ touch .env
   
 6. Starten van de server  
 ``node server.js``
+
+7. Open de de server met localhost:8000
+![Screenshot 2021-03-08 at 14 57 58](https://user-images.githubusercontent.com/60734114/110331504-7c23e200-801f-11eb-8371-fe1b09513820.png)
