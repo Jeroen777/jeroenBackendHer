@@ -23,11 +23,11 @@ touch .env
 4. De .env heeft de volgende structuur   
 ``
 DB_URI=
-
+``
 DB_USER=  
-
+``
 DB_PASS= 
-
+``
 DB_NAME=   
 ``
   
