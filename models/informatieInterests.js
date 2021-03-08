@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 //Structure in the collection 
 const Schema = mongoose.Schema;
 
+//https://mongoosejs.com/docs/guide.html
 //Schema structure how to save in the collection
 //Objects with a string and all are required
 const infoSchema = new Schema({
