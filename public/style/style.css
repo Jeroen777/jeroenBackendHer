@@ -96,6 +96,11 @@ h1 {
     text-align: center;
 }
 
+.interestTitel {
+    color: black;
+    text-align: center;
+}
+
 h3 {
     font-size: 1em;
 }
@@ -111,4 +116,19 @@ h3 {
 
 .bueno {
     padding-top: 2em;
+}
+
+.profiel-foto {
+    height: 200px;
+    width: 200px;
+
+    margin: auto;
+    margin-top: 2em;
+
+    background-image: url("../images/unnamed.png");
+    background-size: cover;
+}
+
+.naam {
+    text-align: center;
 }

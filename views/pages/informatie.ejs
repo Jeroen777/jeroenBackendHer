@@ -1,19 +1,27 @@
 <%- include ('../partials/head.ejs') %>
 
 <body>
-    
+
     <%- include ('../partials/header.ejs') %>
-    <h1>Al jouw interesses</h1>
+    
+
+    <div class="profiel-foto">
+    </div>
+
+    <h1 class="naam"> Jason Nodemon</h1>
+
+    <h2 class="interestTitel">Al jouw interesses</h2>
+
     <div class="interestsPerson">
         <div>
             <!-- loop trough the schema object -->
             <% if (interestView.length > 0) { %>
             <% interestView.forEach(view => { %>
-             
-        <a class='eenInterest' href="<%= view.id%>">
-            <h3 class='bueno'> <%= view.vraagEen%></h3>
-            <p class='snippet'> <%= view.vraagTwee %></p>
-        </a>
+
+            <a class='eenInterest' href="<%= view.id%>">
+                <h3 class='bueno'> <%= view.vraagEen%></h3>
+                <p class='snippet'> <%= view.vraagTwee %></p>
+            </a>
 
             <% }) %>
             <% } else {%>

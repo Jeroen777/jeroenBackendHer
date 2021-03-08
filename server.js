@@ -31,13 +31,13 @@ app.use(express.urlencoded({ extended: true })); //To link with new ID url's
 app.set("view engine", "ejs");
 app.set('views/pages', 'view');
 
+//routes
 app.get('/', informatieShow);
 app.get('/interest', interestShow);
 app.get('/interest/nieuw', nieuwInterest);
 app.get('/:id', linkPagina);
 
 app.post('/', formPost);
-
 
 //functions
 
@@ -58,6 +58,10 @@ function linkPagina (req, res) {
   .then(result => {
     res.render('pages/extraInformatie',{Xinfo: result, title: "Extra informatie"})
   })
+  .catch(error => {
+    res.render('pages/not-found.ejs');
+  });
+
 };
 
 //function render interest page
