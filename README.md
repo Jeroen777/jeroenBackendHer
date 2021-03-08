@@ -20,18 +20,18 @@ cd backend/
 touch .env
 ``
 
-De .env heeft de volgende structuur 
+De .env heeft de volgende structuur   
 ``
 DB_URI=
 DB_USER=
 DB_PASS=
 DB_NAME=
 ``
-
+  
 4. Install al de packages  
 
 ``npm install``  
-
+  
 5. Starten van de server  
 
 ``node server.js``
