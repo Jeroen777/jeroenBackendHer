@@ -29,9 +29,7 @@ DB_NAME=
 ``
   
 4. Install al de packages  
-
 ``npm install``  
   
 5. Starten van de server  
-
 ``node server.js``
