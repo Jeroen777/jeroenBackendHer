@@ -1,5 +1,6 @@
 # Mijn feature
-Met mijn feature is het mogelijk om interesses toe te voegen aan je account.
+Ik heb een feature gemaakt waarmee je interesses aan je profiel kunt toevoegen.
+Het bestaat uit 3 vragen over je interesse. Deze kan je beantwoorden en verschijnen dan op je profiel
 
 ## Database
 Ik maak gebruik van mongodb in combinatie met mongoose. Mijn database wordt gehost met mongo atlas en ik heb mongoDB Compass gebruikt om mijn data te weergeven.
@@ -41,3 +42,13 @@ Dit project is gelicenseerd onder de ISC license. Bekijk het [LICENSE.MD](https:
 
 
 ## Bronnen
+- https://scotch.io/courses/create-a-crud-app-with-node-and-mongodb/environment-variables
+- https://mongoosejs.com/docs/guide.html
+- https://ejs.co/
+- https://medium.com/@LindaVivah/the-beginners-guide-understanding-node-js-express-js-fundamentals-e15493462be1#:~:text=What%20is%20Express%3F,open%20source%20and%20flexible%20Node.
+- https://www.robinwieruch.de/mongodb-express-setup-tutorial
+- https://expressjs.com/
+- https://www.npmjs.com/get-npm
+- https://stackoverflow.com/questions/6528876/how-to-redirect-404-errors-to-a-page-in-expressjs
+- http://expressjs.com/en/api.html
+- https://stackoverflow.com/questions/43016478/casterror-cast-to-objectid-failed-for-value-favicon-ico-at-path-id-for-mod
