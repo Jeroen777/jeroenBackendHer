@@ -1,5 +1,6 @@
 # Mijn feature
-Met mijn feature is het mogelijk om interesses toe te voegen aan je account.
+Ik heb een feature gemaakt waarmee je interesses aan je profiel kunt toevoegen.
+Het bestaat uit 3 vragen over je interesse. Deze kan je beantwoorden en verschijnen dan op je profiel
 
 ## Database
 Ik maak gebruik van mongodb in combinatie met mongoose. Mijn database wordt gehost met mongo atlas en ik heb mongoDB Compass gebruikt om mijn data te weergeven.
