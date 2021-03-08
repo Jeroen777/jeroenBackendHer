@@ -33,7 +33,8 @@ header nav ul li:first-child {
 }
 
 header nav img {
-    height: 3.5em;
+    width: 50px;
+    height: 50px;
     margin-top: 1em;
 
 }
@@ -52,6 +53,7 @@ header nav ul a:hover {
     color: #60adb1;
     transform: scale(1.1);
 }
+
 
 /**/
 /* navigatie responsive*/
@@ -74,12 +76,14 @@ header nav ul a:hover {
 
     header nav ul li {
         width: auto;
+        margin-top: auto;
+        margin-bottom: auto;
     }
 
     header nav img {
-        margin-top: auto;
-        height: 50%;
-        width: 40%;
+        width: 50px;
+        height: 50px;
+        margin-top: 1em;
     }
 
     header nav ul li:first-child {
@@ -105,7 +109,7 @@ h3 {
     font-size: 1em;
 }
 
-.eenInterest{
+.eenInterest {
     color: pink;
     font-size: 1.5em;
     padding-top: 2em;
@@ -131,4 +135,132 @@ h3 {
 
 .naam {
     text-align: center;
+}
+
+.extraInformatieTitel {
+    font-size: 2em;
+    color: purple;
+}
+
+.extraInformatie {
+    font-size: 1em;
+    color: red;
+}
+
+/* main {
+    display: block;
+} */
+
+/* * Formulier met allerlei states*/
+
+form fieldset {
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+    padding: 1em;
+    border: none;
+    transition: .2s;
+}
+
+form legend {
+    position: relative;
+    margin: auto;
+    text-align: center;
+
+    font-size: 1.6em;
+}
+
+form input,
+textarea,
+select,
+button {
+    width: 100%;
+    /* margin: 0; */
+
+    background-color: white;
+}
+
+form label {
+    padding-bottom: 0.4em;
+}
+
+form label:not(:first-of-type) {
+    padding-top: 1em;
+}
+
+form input {
+    height: 3em;
+    border-color: #000;
+    border-width: 0.2em;
+    transition: .2s;
+    padding: 2em;
+    margin-top: 0.2em;
+    margin-bottom: 2em;
+}
+
+form input:valid {
+    border-color: green;
+}
+
+form input:invalid {
+    border-color: red;
+}
+
+form input:focus {
+    border-width: 0.4em;
+    border-color: aqua;
+}
+
+form input:hover {
+    border-width: 0.4em;
+    border-color: aqua;
+}
+
+form textarea {
+    height: 8rem;
+    resize: vertical;
+    border-color: #000;
+    border-width: 0.2em;
+}
+
+form textarea:valid {
+    border-color: green;
+}
+
+form textarea:invalid {
+    border-color: red;
+}
+
+form textarea:focus {
+    border-width: 0.4em;
+    border-color: aqua;
+}
+
+form textarea:hover {
+    border-width: 0.4em;
+    border-color: aqua;
+}
+
+form button {
+    width: 10rem;
+    padding: 1em;
+    margin: auto;
+    margin-top: 2em;
+
+    font-size: 1em;
+    transition: all .2s ease-in-out;
+}
+
+form button:hover {
+    transform: scale(1.1);
+}
+
+/* Formulier contact pagina responsive*/
+@media screen and (min-width: 40em) {
+    form {
+        max-width: 50%;
+        margin: auto;
+        margin-top: 5em;
+    }
 }
