@@ -21,7 +21,7 @@ Maak een .env bestand aan
 touch .env
 ``
 
-En plaats hier de volgende structuur in om de Database te linken
+En plaats hier de volgende structuur in om de Database te linken  
 ``
 DB_URI=
 DB_USER=
