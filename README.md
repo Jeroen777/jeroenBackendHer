@@ -1,47 +1,78 @@
-# Mijn feature
-Ik heb een feature gemaakt waarmee je interesses aan je profiel kunt toevoegen.
-Het bestaat uit 3 vragen over je interesse. Deze kan je beantwoorden en verschijnen dan op je profiel
+# My feature
+I have created a feature that allows you to add interests to your profile.
+It consists of 3 questions about your interest. You can answer this and it will appear on your profile
 
 ## Database
-Ik maak gebruik van mongodb in combinatie met mongoose. Mijn database wordt gehost met mongo atlas en ik heb mongoDB Compass gebruikt om mijn data te weergeven.
+I use mongodb in combination with mongoose. My database is hosted with mongo atlas and I used mongoDB Compass to display my data.
 
-## Het installeren
-1. Clone de repository
+## How to install
+1. Clone the repository
 `` 
 git clone https://github.com/Jeroen777/JeroenBackendHer
 ``  
   
-2. Kies de juiste map waar je deze wil clonen  
+2. Choose the correct folder where you want to clone it  
 ``
 cd backend/
 ``
   
-3. Maak een .env bestand aan  
+3. Make a .env file 
 ``
 touch .env
 ``
 
-4. De .env heeft de volgende structuur   
+4. The .env file has the following structure  
   ``DB_URI=`` 
   ``DB_USER=`` 
   ``DB_PASS=`` 
   ``DB_NAME=`` 
 
   
-5. Install al de packages  
+5. Install the packages  
 ``npm install``  
   
-6. Starten van de server  
+6. Start the server 
 ``node server.js``
 
-7. Open de de server met localhost:8000
+7. Open the server on localhost:8000
 ![Screenshot 2021-03-08 at 14 57 58](https://user-images.githubusercontent.com/60734114/110331504-7c23e200-801f-11eb-8371-fe1b09513820.png)
 
-## Licensie
-Dit project is gelicenseerd onder de ISC license. Bekijk het [LICENSE.MD](https://github.com/Jeroen777/jeroenBackendHer/blob/master/LICENSE.MD) bestand voor meer informatie.
+## Mongoose model
+``` javascript
+const mongoose = require('mongoose');
+
+//Structure in the collection 
+const Schema = mongoose.Schema;
+
+//https://mongoosejs.com/docs/guide.html
+//Schema structure how to save in the collection
+//Objects with a string and all are required
+const infoSchema = new Schema({
+    vraagEen: {
+        type: String,
+        required: true
+    },
+    vraagTwee: {
+        type: String,
+        required: true
+    },
+    vraagDrie: {
+        type: String,
+        required: true
+    }
+});
+
+//mongoose model, Info terugvinden, model gebaseerd op de Schema
+//export to use in server.js
+const Inter = mongoose.model('Inter', infoSchema);
+module.exports = Inter;
+```
+
+## License
+This project is licensed under the ISC license. See the [LICENSE.MD](https://github.com/Jeroen777/jeroenBackendHer/blob/master/LICENSE.MD) file for more information.
 
 
-## Bronnen
+## Sources
 - https://scotch.io/courses/create-a-crud-app-with-node-and-mongodb/environment-variables
 - https://mongoosejs.com/docs/guide.html
 - https://ejs.co/
