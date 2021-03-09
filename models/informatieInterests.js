@@ -21,7 +21,7 @@ const infoSchema = new Schema({
     }
 });
 
-//mongoose model, Info terugvinden, model gebaseerd op de Schema
+//mongoose model, Find info, model is based on the Schema
 //export to use in server.js
 const Inter = mongoose.model('Inter', infoSchema);
 module.exports = Inter;

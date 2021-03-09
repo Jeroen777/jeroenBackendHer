@@ -38,13 +38,14 @@ app.get('/interest/nieuw', nieuwInterest);
 app.get('/:id', linkPagina);
 
 app.post('/', formPost);
+// app.delete('/delete/:id', verwijderPost);
+
 
 //functions
 
 //function to post new interest and save in DB
 function formPost(req, res){
   const inter = new Inter(req.body);
-
   inter.save()
   .then((result) => {
  res.redirect('/');
@@ -63,6 +64,7 @@ function linkPagina (req, res) {
   });
 
 };
+
 
 //function render interest page
 function interestShow(req, res) {
